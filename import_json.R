@@ -80,12 +80,12 @@ covid_data <- filter(covid_data, date %in% date_range)
 
 ggplot(covid_data) +
   stat_smooth(mapping = aes(x = date, y = newCases), span= 0.1, show.legend = TRUE) +
-  geom_point(colour = "black", alpha = 0.5, size = 1, mapping =  aes(x = date, y = newCases)) +
+  # geom_point(colour = "black", alpha = 0.5, size = 1, mapping =  aes(x = date, y = newCases)) +
   theme_bw() +
   scale_x_date(NULL,
                breaks = scales::breaks_width("1 week"),
                labels = scales::label_date_short()) +
-  scale_y_continuous(breaks = seq(0, 40000, by = 1000 ))  +
+  scale_y_continuous(breaks = seq(0, 400000, by = 10000 ))  +
   ylab("new cases") +
   labs (title = "Covid-19 new cases in England",
         subtitle = "Source: https://api.coronavirus.data.gov.uk/v1/data",
@@ -100,7 +100,7 @@ ggplot(covid_data) +
   scale_x_date(NULL,
                breaks = scales::breaks_width("1 week"),
                labels = scales::label_date_short()) +
-  scale_y_continuous(breaks = seq(0, 800000, by = 20000 ))  +
+  scale_y_continuous(breaks = seq(0, 40000000, by = 1000000 ))  +
   ylab("total cases") +
   labs (title = "Covid-19 total cases in England",
         subtitle = "Source: https://api.coronavirus.data.gov.uk/v1/data",
